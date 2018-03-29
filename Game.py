@@ -1,6 +1,5 @@
 import pygame
 import sys
-import random
 from pygame.locals import *
 nombre_assets=3
 print("\nCeci est une version de developpement et ne dois \nen aucun cas etre consideree comme le produit final.\n")
@@ -22,18 +21,11 @@ for i in range(0,nombre_assets):
 
 #Fait defiler le fond
 def Background(scroll_speed,scrolling):
-    num_decord=0
-    random_number=random.randrange(1,101)
-    if random_number==1:
-        print("decord vr")
-        random_decord=random.randrange(0,3)
-        num_decord=random_decord        
     scrolling=scrolling+1*scroll_speed
-    window.blit(background[num_decord],(0,scrolling))
-    window.blit(background[num_decord],(0,scrolling-400))
+    window.blit(background[0],(0,scrolling))
+    window.blit(background[0],(0,scrolling-400))
     if scrolling>400:
         scrolling=0
-    return 
     return scrolling
 
 print("\nEn cours...")
