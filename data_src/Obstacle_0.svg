@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="182.23492mm"
+   height="182.23492mm"
+   viewBox="0 0 645.7143 645.7143"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Obstacle_0.svg"
+   inkscape:export-filename="/home/arthur/Documents/Python/Corridor-Jumper-master/data_src/Obstacle_0.png"
+   inkscape:export-xdpi="5.5752211"
+   inkscape:export-ydpi="5.5752211">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-697.93577"
+     inkscape:cy="123.17291"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-17.142857,-186.64792)">
+    <path
+       style="opacity:0.98299997;fill:#39912c;fill-opacity:1;stroke:#a58e72;stroke-width:0.2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 159.80469 115.48047 C 149.21475 115.48047 138.62432 119.53779 130.50977 127.65234 C 114.28065 143.88146 114.28065 170.01308 130.50977 186.24219 L 262.83984 318.57227 L 130.50977 450.90234 C 114.28066 467.13145 114.28065 493.26112 130.50977 509.49023 C 146.73887 525.71934 172.86855 525.71934 189.09766 509.49023 L 321.42773 377.16016 L 453.75781 509.49023 C 469.98692 525.71935 496.11854 525.71935 512.34766 509.49023 C 528.57677 493.26112 528.57677 467.13146 512.34766 450.90234 L 380.01758 318.57227 L 512.34766 186.24219 C 528.57677 170.01308 528.57676 143.88145 512.34766 127.65234 C 496.11854 111.42323 469.98692 111.42323 453.75781 127.65234 L 321.42773 259.98242 L 189.09766 127.65234 C 180.9831 119.53779 170.39462 115.48047 159.80469 115.48047 z "
+       transform="translate(17.142857,186.64792)"
+       id="rect4134" />
+  </g>
+</svg>
