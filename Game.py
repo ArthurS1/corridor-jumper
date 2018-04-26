@@ -60,7 +60,7 @@ while maintain:
     scrolling=scrolling+speed #Fait défiler le fond
     window.blit(background[0],(0,scrolling-9450)) #Fait afficher le fond
 
-    if generated==False:    #Genere la position initiale des obstacles
+    if generated==False: #Genere la position initiale des obstacles
         for i in range(0,5):
             pos_obstacle.append(random.randrange(130, 231, 50))
             offset_obstacle.append(random.randrange(scrolling-40,scrolling-1000,-40))
@@ -73,7 +73,13 @@ while maintain:
         window.blit(obstacle[0],(pos_obstacle[i],scrolling+offset_obstacle[i]))
 
     window.blit(player[0],(player_pos,500)) #Affiche le joueur
-
+    for i in range(0,5): #Vérifie si le joueur marche sur un obstacle et arrette l'app si c'est le cas
+        if player_pos==pos_obstacle[i] and scrolling+offset_obstacle[i]==460:
+            maintain=False
+    
+    if scrolling/100>100: #Vérifie qu'on est pas à la fin du niveau    
+        maintain=False
+    
     pygame.display.flip() #Met à jour la vue
 
     for event in pygame.event.get():
