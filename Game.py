@@ -38,7 +38,7 @@ for i in range(0,1):
         print("Une erreur est survenue\nFermeture du programme...")
         sys.exit()
 #       Obstacles
-for i in range(0,1):
+for i in range(0,3):
     try:
         print("Chargement de data/Obstacle_"+str(i)+".png")
         obstacle.append(pygame.image.load("data/Obstacle_"+str(i)+".png"))
@@ -50,10 +50,12 @@ print("\nEn cours...\n")
 print("Détails:")
 print("Facteur vitesse: "+str(speed))
 
+type_obstacle=[]
 pos_obstacle=[]
 offset_obstacle=[]
 generated=False #La postition initiale des obstacle a elle ete generee?
 player_pos=180 #Position du joueur sur l'axe x
+
 #Boucle du jeu
 while maintain:
 
@@ -62,15 +64,16 @@ while maintain:
 
     if generated==False: #Genere la position initiale des obstacles
         for i in range(0,5):
-            pos_obstacle.append(random.randrange(130, 231, 50))
-            offset_obstacle.append(random.randrange(scrolling-40,scrolling-1000,-40))
+            type_obstacle.append(random.randrange(0,3,1)) #Le type des obstacles (chaise? extincteur?)
+            pos_obstacle.append(random.randrange(130,231,50)) #La position des obstacles (dans quelles colonnes sont ils?)
+            offset_obstacle.append(random.randrange(scrolling-40,scrolling-1000,-40)) #Difficultés avec randrange, ne prend en charge que des ints
         generated=True
     for i in range(0,5): #Regarde si des obstacles sont hors du champs de vision
         if scrolling+offset_obstacle[i]>550:
             offset_obstacle[i]=offset_obstacle[i]+random.randrange(-600,-2000,-40)  #Affiche les obstacles supplémentaires
-            pos_obstacle[i]=random.randrange(130, 231, 50)
+            pos_obstacle[i]=random.randrange(130,231,50)
     for i in range(0,5): #Affiche les obstacles
-        window.blit(obstacle[0],(pos_obstacle[i],scrolling+offset_obstacle[i]))
+        window.blit(obstacle[type_obstacle[i]],(pos_obstacle[i],scrolling+offset_obstacle[i]))
 
     window.blit(player[0],(player_pos,500)) #Affiche le joueur
     for i in range(0,5): #Vérifie si le joueur marche sur un obstacle et arrette l'app si c'est le cas
