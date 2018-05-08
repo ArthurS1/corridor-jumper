@@ -3,6 +3,8 @@ import sys
 import random
 from pygame.locals import *
 
+pygame.init()
+
 #Variables du jeu
 maintain=True #Maintiens le jeu ouvert
 scrolling=0 #A quel point le jeu défile, définit le score
@@ -13,6 +15,7 @@ print("\nCeci est une version de developpement et ne dois \nen aucun cas etre co
 #Affichage de la fenetre
 window=pygame.display.set_mode((400,550))
 info=pygame.display.Info()
+pygame.display.set_caption("Corridor Jumper")
 
 #Chargements
 #   Variables dans lesquelles on stock les images
@@ -80,7 +83,8 @@ while maintain:
         if player_pos==pos_obstacle[i] and scrolling+offset_obstacle[i]==460:
             maintain=False
     
-    if scrolling/100>100: #Vérifie qu'on est pas à la fin du niveau    
+    if scrolling/100>100: #Vérifie qu'on est pas à la fin du niveau
+        print("Gagne!")
         maintain=False
     
     pygame.display.flip() #Met à jour la vue
@@ -98,6 +102,8 @@ while maintain:
                 player_pos=player_pos-50
         if event.type==QUIT: #Traite la fin du programme
             maintain=False
+    
+    pygame.display.set_caption("Corridor Jumper - "+str(int(scrolling/100))+"%")
 
 print("\nNiveau completé à "+str(int(scrolling/100)) +"%")
 
