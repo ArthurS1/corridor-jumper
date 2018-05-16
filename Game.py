@@ -42,8 +42,7 @@ for i in range(0,1):
         sys.exit()
 #       Obstacles
 for i in range(0,3):
-    try:
-        print("Chargement de data/Obstacle_"+str(i)+".png")
+    try:v        print("Chargement de data/Obstacle_"+str(i)+".png")
         obstacle.append(pygame.image.load("data/Obstacle_"+str(i)+".png"))
     except:
         print("Une erreur est survenue\nFermeture du programme...")
@@ -96,7 +95,7 @@ while maintain:
             else:
                 player_pos=player_pos+50
         if event.type==KEYDOWN and event.key==K_LEFT: #Traite la flèche GAUCHE
-            if player_pos==130: #Restriction des moucements
+            if player_pos==130: #Restriction des mouvements
                 print("Deplacement a gauche impossible.")
             else:
                 player_pos=player_pos-50
