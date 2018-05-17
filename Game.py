@@ -42,7 +42,8 @@ for i in range(0,1):
         sys.exit()
 #       Obstacles
 for i in range(0,3):
-    try:v        print("Chargement de data/Obstacle_"+str(i)+".png")
+    try:       
+        print("Chargement de data/Obstacle_"+str(i)+".png")
         obstacle.append(pygame.image.load("data/Obstacle_"+str(i)+".png"))
     except:
         print("Une erreur est survenue\nFermeture du programme...")
