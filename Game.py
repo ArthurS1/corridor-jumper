@@ -4,6 +4,7 @@ import sys
 from pygame.locals import *
 
 pygame.init()
+pygame.mixer.init() 
 
 #Variables du jeu
 maintain=True #Maintiens le jeu ouvert
@@ -48,6 +49,12 @@ for i in range(0,3):
     except:
         print("Une erreur est survenue\nFermeture du programme...")
         sys.exit()
+try:
+    pygame.mixer.music.load("data/Music.mp3")
+    print("Chargement de data/Music.mp3")
+except:
+    print("Une erreur est survenue\nFermeture du programme...")
+    sys.exit()
 
 print("\nEn cours...\n")
 print("Détails:")
@@ -59,6 +66,8 @@ pos_obstacle=[]
 offset_obstacle=[]
 generated=False #La postition initiale des obstacle a elle ete generee?
 player_pos=180 #Position du joueur sur l'axe x
+
+pygame.mixer.music.play(-1,0.0) 
 
 #Boucle du jeu
 while maintain:
@@ -80,13 +89,16 @@ while maintain:
     for i in range(0,5): #Affiche les obstacles
         window.blit(obstacle[type_obstacle[i]],(pos_obstacle[i],scrolling+offset_obstacle[i]))
 
-    if sprite_state<0.5:
-        window.blit(player[0],(player_pos,500)) #Affiche le joueur ICI LE SPRITE
-        sprite_state=sprite_state+0.01
+    if sprite_state<50: #Joue l'animation du joueur (2 images)
+        window.blit(player[0],(player_pos,500))
     else:
-        window.blit(player[1],(player_pos,500)) #Affiche le joueur ICI LE SPRITE
-        sprite_state=sprite_state-0.01
+        window.blit(player[1],(player_pos,500))
+    
+    sprite_state=sprite_state+1
 
+    if sprite_state>100:
+        sprite_state=0
+    
     for i in range(0,5): #Vérifie si le joueur marche sur un obstacle et arrette l'app si c'est le cas
         if player_pos==pos_obstacle[i] and scrolling+offset_obstacle[i]<=462 and scrolling+offset_obstacle[i]>=459:
             maintain=False
