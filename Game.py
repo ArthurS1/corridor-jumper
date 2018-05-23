@@ -1,6 +1,6 @@
 import pygame
-import sys
 import random
+import sys
 from pygame.locals import *
 
 pygame.init()
@@ -33,7 +33,7 @@ for i in range(0,1):
         print("Une erreur est survenue\nFermeture du programme...")
         sys.exit()
 #       Player
-for i in range(0,1):
+for i in range(0,2):
     try:
         print("Chargement de data/Player_"+str(i)+".png")
         player.append(pygame.image.load("data/Player_"+str(i)+".png"))
@@ -42,7 +42,7 @@ for i in range(0,1):
         sys.exit()
 #       Obstacles
 for i in range(0,3):
-    try:       
+    try:
         print("Chargement de data/Obstacle_"+str(i)+".png")
         obstacle.append(pygame.image.load("data/Obstacle_"+str(i)+".png"))
     except:
@@ -53,6 +53,7 @@ print("\nEn cours...\n")
 print("Détails:")
 print("Facteur vitesse: "+str(speed))
 
+sprite_state=0
 type_obstacle=[]
 pos_obstacle=[]
 offset_obstacle=[]
@@ -61,8 +62,9 @@ player_pos=180 #Position du joueur sur l'axe x
 
 #Boucle du jeu
 while maintain:
-
-    scrolling=scrolling+speed #Fait défiler le fond
+    
+    scrolling=1*speed+scrolling #Fait défiler le fond
+    speed=speed+0.001
     window.blit(background[0],(0,scrolling-9450)) #Fait afficher le fond
 
     if generated==False: #Genere la position initiale des obstacles
@@ -78,9 +80,15 @@ while maintain:
     for i in range(0,5): #Affiche les obstacles
         window.blit(obstacle[type_obstacle[i]],(pos_obstacle[i],scrolling+offset_obstacle[i]))
 
-    window.blit(player[0],(player_pos,500)) #Affiche le joueur
+    if sprite_state<0.5:
+        window.blit(player[0],(player_pos,500)) #Affiche le joueur ICI LE SPRITE
+        sprite_state=sprite_state+0.01
+    else:
+        window.blit(player[1],(player_pos,500)) #Affiche le joueur ICI LE SPRITE
+        sprite_state=sprite_state-0.01
+
     for i in range(0,5): #Vérifie si le joueur marche sur un obstacle et arrette l'app si c'est le cas
-        if player_pos==pos_obstacle[i] and scrolling+offset_obstacle[i]==460:
+        if player_pos==pos_obstacle[i] and scrolling+offset_obstacle[i]<=462 and scrolling+offset_obstacle[i]>=459:
             maintain=False
     
     if scrolling/100>100: #Vérifie qu'on est pas à la fin du niveau
@@ -109,4 +117,3 @@ print("\nNiveau completé à "+str(int(scrolling/100)) +"%")
 
 print("\nArret...")
 sys.exit() 
-
